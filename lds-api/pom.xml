@@ -22,6 +22,11 @@
             <groupId>br.com.mobguide</groupId>
             <artifactId>lds-model</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>br.com.mobguide</groupId>
+            <artifactId>lds-database</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
