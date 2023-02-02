@@ -18,6 +18,7 @@
     </properties>
 
     <dependencies>
+<!--        dependencias do projeto-->
         <dependency>
             <groupId>br.com.mobguide</groupId>
             <artifactId>lds-model</artifactId>
@@ -27,6 +28,52 @@
             <groupId>br.com.mobguide</groupId>
             <artifactId>lds-database</artifactId>
         </dependency>
+<!--        dependencias do projeto-->
+
+
+<!--        dependencias do spring boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+<!--        dependencias do spring boot-->
+
+<!--        dependencias de teste-->
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <scope>test</scope>
+        </dependency>
+<!--        dependencias de teste-->
+
+
+
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
