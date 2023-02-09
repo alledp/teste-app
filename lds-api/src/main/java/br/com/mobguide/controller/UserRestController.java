@@ -9,12 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "*")
-public class UserRestController {
-
-    @GetMapping("/test")
-    public ResponseEntity<String> getData() {
-        return ResponseEntity.ok("vida loka");
-    }
-
+public class    UserRestController {
 
 }
