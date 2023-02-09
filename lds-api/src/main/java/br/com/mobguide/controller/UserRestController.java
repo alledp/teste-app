@@ -25,18 +25,18 @@ public class    UserRestController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") final int id){
-        return ResponseEntity.ok(body: true);
+        return ResponseEntity.ok(true);
     }
 
     @PostMapping("/create")
     public ResponseEntity<Integer> create(@RequestBody final UserModel user){
-        return ResponseEntity.ok(body: 1);
+        return ResponseEntity.ok(1);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Boolean> update(@PathVariable("id") final int id,
-                                          @RequestBody()) {
-        return ResponseEntity.ok(body: true);
+                                          @RequestBody() final UserModel user) {
+        return ResponseEntity.ok(true);
     }
 
 
