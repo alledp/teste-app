@@ -3,6 +3,7 @@ package br.com.mobguide.controller;
 import br.com.mobguide.model.entities.UserModel;
 import br.com.mobguide.service.CrudService;
 import br.com.mobguide.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class    UserRestController {
 
-    private CrudService<UserModel> service = new UserServiceImpl();
+    @Autowired
+    private CrudService<UserModel> service;
 
     @GetMapping("/find/{id}")
     public ResponseEntity<UserModel> getUserById(@PathVariable("id") final int id){

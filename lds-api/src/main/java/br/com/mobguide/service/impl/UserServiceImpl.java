@@ -2,9 +2,11 @@ package br.com.mobguide.service.impl;
 
 import br.com.mobguide.model.entities.UserModel;
 import br.com.mobguide.service.CrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements CrudService<UserModel> {
 
     @Override
