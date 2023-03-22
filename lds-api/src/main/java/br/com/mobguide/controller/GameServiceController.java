@@ -1,38 +1,37 @@
 package br.com.mobguide.controller;
 
-import br.com.mobguide.model.entities.UserModel;
+
+import br.com.mobguide.model.entities.Game;
 import br.com.mobguide.service.CrudService;
-import br.com.mobguide.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/game")
 @CrossOrigin(origins = "*")
-public class UserRestController {
+public class GameServiceController {
 
     @Autowired
-    private CrudService<UserModel> service;
+    private CrudService<Game> service;
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<UserModel> getUserById(@PathVariable("id") final int id){
-        UserModel user = service.readById(id);
+    public ResponseEntity<Game> getGameById(@PathVariable("id") final int id){
+        Game game_var = service.readById(id);
 
-        if(user == null){
+        if(game_var == null){
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(game_var);
     }
 
     @GetMapping("/find")
-    public ResponseEntity<List<UserModel>> getUsers() {
-        List<UserModel> list = service.read();
+    public ResponseEntity<List<Game>> getGames() {
+        List<Game> list = service.read();
+
         return ResponseEntity.ok(list);
     }
 
@@ -49,9 +48,9 @@ public class UserRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Integer> create(@RequestBody final UserModel user){
+    public ResponseEntity<Integer> create(@RequestBody final Game game_var){
 
-        int response = service.create(user);
+        int response = service.create(game_var);
 
         if(response == -1){
             return ResponseEntity.badRequest().build();
@@ -62,9 +61,9 @@ public class UserRestController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Boolean> update(@PathVariable("id") final int id,
-                                          @RequestBody() final UserModel user) {
+                                          @RequestBody() final Game game_update) {
 
-        boolean response = service.updateById(id, user);
+        boolean response = service.updateById(id, game_update);
 
         if(!response){
             return ResponseEntity.notFound().build();

@@ -1,8 +1,8 @@
-package br.com.mobguide.service;
+package br.com.mobguide.db.dao;
 
 import java.util.List;
 
-public interface CrudService <T> {
+public interface CrudDao <T> {
 
     int create(T data);
 

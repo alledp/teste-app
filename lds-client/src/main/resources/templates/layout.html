@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
 
 
     <head>
@@ -528,14 +528,39 @@
                                     <span class="hide-menu">Users</span></a>
                                 <ul aria-expanded="false" class="collapse first-level in">
                                     <li class="sidebar-item">
-                                        <a href="#" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> List </span></a>
+                                        <a th:href="@{/user/list}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> List </span></a>
+                                    </li>
+
+                                    <li class="sidebar-item">
+                                        <a th:href="@{/user/create}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> Create </span></a>
+                                    </li>
+
+                                    <li class="sidebar-item">
+                                        <a th:href="@{/user/edit}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> Edit </span></a>
                                     </li>
 
                                 </ul>
                             </li>
 
+                            <li class="sidebar-item selected">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark active" href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/xtreme-bootstrap/package/html/light-sidebar/index2.html#" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home feather-icon"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 
+                                    <span class="hide-menu">Games</span></a>
+                                <ul aria-expanded="false" class="collapse first-level in">
+                                    <li class="sidebar-item">
+                                        <a th:href="@{/game/list}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> List </span></a>
+                                    </li>
 
+                                    <li class="sidebar-item">
+                                        <a th:href="@{/game/create}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> Create </span></a>
+                                    </li>
+
+                                    <li class="sidebar-item">
+                                        <a th:href="@{/game/edit}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> Edit </span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
 
 
                             <li class="nav-small-cap">
@@ -560,21 +585,21 @@
             <!-- -------------------------------------------------------------- -->
             <div class="page-wrapper" style="display: block;">
 
-                <div class="page-breadcrumb">
-                    <div class="row">
-                        <div class="col-5 align-self-center">
-                            <h4 class="page-title">Dashboard</h4>
-                            <div class="d-flex align-items-center">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="page-breadcrumb">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-5 align-self-center">-->
+<!--                            <h4 class="page-title">Dashboard</h4>-->
+<!--                            <div class="d-flex align-items-center">-->
+<!--                                <nav aria-label="breadcrumb">-->
+<!--                                    <ol class="breadcrumb">-->
+<!--                                        <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--                                        <li class="breadcrumb-item active" aria-current="page">Library</li>-->
+<!--                                    </ol>-->
+<!--                                </nav>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- -------------------------------------------------------------- -->
                 <!-- content -->

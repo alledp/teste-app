@@ -20,15 +20,27 @@
 
     <dependencies>
 
+<!--        dependencias internas-->
+        <dependency>
+            <groupId>br.com.mobguide</groupId>
+            <artifactId>lds-model</artifactId>
+        </dependency>
+<!--        dependencias internas-->
+
+<!--        dependencias externas-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>br.com.mobguide</groupId>
-            <artifactId>lds-model</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
+
+<!--        dependencias externas-->
+
+
     </dependencies>
 
 </project>

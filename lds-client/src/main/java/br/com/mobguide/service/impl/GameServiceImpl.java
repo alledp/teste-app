@@ -1,5 +1,6 @@
 package br.com.mobguide.service.impl;
 
+import br.com.mobguide.model.entities.Game;
 import br.com.mobguide.model.entities.UserModel;
 import br.com.mobguide.service.CrudService;
 import br.com.mobguide.service.RestService;
@@ -9,14 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements CrudService<UserModel> {
-
+public class GameServiceImpl implements CrudService<Game> {
 
     @Autowired
-    private RestService<UserModel> restService;
+    private RestService<Game> restService;
+
 
     @Override
-    public int create(UserModel data) {
+    public int create(Game data) {
         return 0;
     }
 
@@ -26,21 +27,20 @@ public class UserServiceImpl implements CrudService<UserModel> {
     }
 
     @Override
-    public UserModel readById(int id) {
+    public Game readById(int id) {
         return null;
     }
 
     @Override
-    public List<UserModel> read() {
+    public List<Game> read() {
 
-        List<UserModel> users = restService.get("http://localhost:8081/api/user/find");
+            List<Game> games = restService.get("http://localhost:8081/api/game/find");
 
-        return users;
-
+            return games;
     }
 
     @Override
-    public boolean updateById(int id, UserModel data) {
+    public boolean updateById(int id, Game data) {
         return false;
     }
 }
