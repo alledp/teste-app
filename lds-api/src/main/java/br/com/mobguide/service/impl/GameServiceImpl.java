@@ -18,7 +18,7 @@ public class GameServiceImpl implements CrudService<Game> {
     @Override
     public int create(Game data) {
 
-        if(data == null || data.getId() <=0){
+        if(data == null){
             return -1;
         }
         return dao.create(data);

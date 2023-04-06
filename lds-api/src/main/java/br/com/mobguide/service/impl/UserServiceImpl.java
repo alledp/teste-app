@@ -17,7 +17,7 @@ public class UserServiceImpl implements CrudService<UserModel> {
 
     @Override
     public int create(UserModel data) {
-        if(data == null || data.getId() <=0){
+        if(data == null){
             return -1;
         }
 

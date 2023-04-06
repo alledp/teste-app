@@ -33,7 +33,9 @@ public class UserServiceImpl implements CrudService<UserModel> {
         data.setType(UserType.CLIENT);
         data.setActive(true);
 
-        return 0;
+        int createId = restService.post("http://localhost:8081/api/user/create", data);
+        return createId;
+
     }
 
     @Override
