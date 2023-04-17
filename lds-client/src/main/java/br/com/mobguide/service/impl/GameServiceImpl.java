@@ -14,9 +14,9 @@ import java.util.List;
 @Service
 public class GameServiceImpl implements CrudService<Game> {
 
+    private static final String BASE_ENDPOINT = "http://localhost:8081/api/game";
     @Autowired
     private RestService<Game> restService;
-
 
     @Override
     public int create(Game data) {
@@ -36,7 +36,7 @@ public class GameServiceImpl implements CrudService<Game> {
 
             // Aqui vai chamar o codigo paassando o data cccomo parametro para a nova entrada ser criada.
 
-            int createId = restService.post("http://localhost:8081/api/game/create", data);
+            int createId = restService.post(BASE_ENDPOINT + "/create", data);
             return createId;
 
         } else {
@@ -46,24 +46,32 @@ public class GameServiceImpl implements CrudService<Game> {
 
     @Override
     public boolean deleteById(int id) {
-        return false;
+
+        return restService.delete(BASE_ENDPOINT + "/delete/" + id);
     }
 
     @Override
     public Game readById(int id) {
-        return null;
+
+        Game game_var = restService.getById(BASE_ENDPOINT + "/find/" + id, Game.class);
+        return game_var;
     }
 
     @Override
     public List<Game> read() {
 
-            List<Game> games = restService.get("http://localhost:8081/api/game/find");
+            List<Game> games = restService.get(BASE_ENDPOINT + "/find");
 
             return games;
     }
 
     @Override
     public boolean updateById(int id, Game data) {
-        return false;
+
+        Game game_var = readById(data.getId());
+        game_var.setPrice(data.getPrice());
+        game_var.setType(data.getType());
+
+        return restService.put(BASE_ENDPOINT + "/update/" + id, game_var);
     }
 }
