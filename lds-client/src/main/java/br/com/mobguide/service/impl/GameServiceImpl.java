@@ -34,8 +34,10 @@ public class GameServiceImpl implements CrudService<Game> {
                 || data.getType().equals(GameType.GACHA)
                 || data.getType().equals(GameType.SHOOTER)){
 
-            // Aqui vai chamar o codigo paassando o data como parametro para a nova entrada ser criada.
-            return 0;
+            // Aqui vai chamar o codigo paassando o data cccomo parametro para a nova entrada ser criada.
+
+            int createId = restService.post("http://localhost:8081/api/game/create", data);
+            return createId;
 
         } else {
             return -1;

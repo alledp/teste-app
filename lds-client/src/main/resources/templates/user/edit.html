@@ -46,7 +46,9 @@
 
           <div class="mb-2 col-12 col-sm-7">
 
-            <form action="">
+            <form th:action="@{/user/update}" method="post">
+
+              <input type="hidden" th:field="${usuario.id}">
 
               <div class="mb-2 card">
                 <div class="card-body">
@@ -54,13 +56,13 @@
                   <div class="row">
                     <div class="col-sm-3">Nome</div>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="Nome Completo">
+                      <input type="text" class="form-control" placeholder="Nome Completo" th:field="${usuario.fullName}">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-3">Email</div>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" placeholder="Email">
+                      <input type="email" class="form-control" placeholder="Email" th:field="${usuario.email}">
                     </div>
                   </div>
 

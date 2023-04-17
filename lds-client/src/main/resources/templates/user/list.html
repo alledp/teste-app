@@ -48,7 +48,29 @@
                                         <td th:text="${user.id}">100</td>
                                         <td th:text="${user.fullName}">Tibursinho Tiburssius</td>
                                         <td th:text="${user.email}">tiburssinho@gmail.com</td>
-                                        <td></td>
+                                        <td>
+
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a th:href="@{/user/detail/{id}  (id=${user.id}) }" class="btn btn-primary">
+                                                        <i class="fas fa-address-card"></i>
+                                                    </a>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <a th:href="@{/user/edit/{id}  (id=${user.id}) }" class="btn btn-warning">
+                                                        <i class="fas fa-lock"></i>
+                                                    </a>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <a th:href="@{/user/delete/{id}  (id=${user.id}) }" class="btn btn-danger">
+                                                        <i class="fas fa-user-alt-slash"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -123,6 +123,7 @@ public class UserFakeDaoImpl implements CrudDao<UserModel> {
 
         if(userToBeUpdated != null){
             userToBeUpdated.setFullName(data.getFullName());
+            userToBeUpdated.setEmail(data.getEmail());
             return true;
         }
 

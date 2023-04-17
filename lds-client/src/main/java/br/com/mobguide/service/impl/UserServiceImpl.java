@@ -13,6 +13,7 @@ import java.util.List;
 public class UserServiceImpl implements CrudService<UserModel> {
 
 
+    private static final String BASE_ENDPOINT = "http://localhost:8081/api/user";
     @Autowired
     private RestService<UserModel> restService;
 
@@ -33,25 +34,27 @@ public class UserServiceImpl implements CrudService<UserModel> {
         data.setType(UserType.CLIENT);
         data.setActive(true);
 
-        int createId = restService.post("http://localhost:8081/api/user/create", data);
+        int createId = restService.post(BASE_ENDPOINT + "/create", data);
         return createId;
 
     }
 
     @Override
     public boolean deleteById(int id) {
-        return false;
+        return restService.delete(BASE_ENDPOINT + "/delete/" + id);
     }
 
     @Override
     public UserModel readById(int id) {
-        return null;
+
+        UserModel user = restService.getById(BASE_ENDPOINT + "/find/" + id, UserModel.class);
+        return user;
     }
 
     @Override
     public List<UserModel> read() {
 
-        List<UserModel> users = restService.get("http://localhost:8081/api/user/find");
+        List<UserModel> users = restService.get(BASE_ENDPOINT + "/find");
 
         return users;
 
@@ -59,6 +62,11 @@ public class UserServiceImpl implements CrudService<UserModel> {
 
     @Override
     public boolean updateById(int id, UserModel data) {
-        return false;
+
+        UserModel userModel = readById(data.getId());
+        userModel.setFullName(data.getFullName());
+        userModel.setEmail(data.getEmail());
+
+        return restService.put(BASE_ENDPOINT + "/update/" + id, userModel);
     }
 }
