@@ -48,6 +48,72 @@ Para fazer update em uma tabela:
 Para remover uma determinada informação do banco:
 >delete from loja where id = 3
 
+----
+Para Criar uma Tabela:
+> CREATE TABLE usuario(
+id BIGSERIAL,
+nome_usuario VARCHAR(50) NOT NULL,
+nome_completo VARCHAR(100),
+PRIMARY KEY(id)
+);
+
+>CREATE TABLE jogo(
+id BIGSERIAL,
+nome VARCHAR(50) NOT NULL,
+plataforma VARCHAR(50),
+valor DECIMAL DEFAULT 249.90,
+PRIMARY KEY(id)
+);
+
+>INSERT INTO usuario(nome_usuario, nome_completo)
+VALUES ('red','Marcelo pipo red bull');
+
+>INSERT INTO usuario(nome_usuario, nome_completo)
+VALUES ('totonho','Luis antonio');
+
+>INSERT INTO jogo(nome, plataforma)
+VALUES ('Destiny 2','PS5');
+
+>INSERT INTO jogo(nome, plataforma, valor)
+VALUES ('Final Fantasy XIV' ,'PS5', 350.90);
+
+>CREATE TABLE usuario_jogo(
+usuario_id_fk BIGINT NOT NULL,
+jogo_id_fk BIGINT NOT NULL,
+nota BIGINT DEFAULT 0,
+PRIMARY KEY(usuario_id_fk, jogo_id_fk)
+);
+
+>ALTER TABLE usuario_jogo
+ADD CONSTRAINT usuario_jogo_usuario_fk
+FOREIGN KEY (usuario_id_fk)
+REFERENCES usuario(id)
+ON DELETE CASCADE;
+
+>ALTER TABLE usuario_jogo
+ADD CONSTRAINT usuario_jogo_jogo_fk
+FOREIGN KEY (jogo_id_fk)
+REFERENCES jogo(id)
+ON DELETE CASCADE;
+
+
+>INSERT INTO usuario_jogo (usuario_id_fk, jogo_id_fk) VALUES(1,4);
+>INSERT INTO usuario_jogo (usuario_id_fk, jogo_id_fk) VALUES(2,4);
+>INSERT INTO usuario_jogo (usuario_id_fk, jogo_id_fk) VALUES(2,5);
+
+>SELECT * FROM usuario u
+INNER JOIN usuario_jogo uj ON u.id = uj.usuario_id_fk
+INNER JOIN jogo j ON j.id = uj.jogo_id_fk
+WHERE
+u.id = 1
+
+>SELECT j.nome, j.plataforma, j.valor, uj.nota FROM usuario u
+INNER JOIN usuario_jogo uj ON u.id = uj.usuario_id_fk
+INNER JOIN jogo j ON j.id = uj.jogo_id_fk
+WHERE
+u.id = 1
+
+
 -------
 Postgres data:
 
