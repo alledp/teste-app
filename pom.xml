@@ -5,10 +5,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>lds-api</module>
-		<module>lds-database</module>
 		<module>lds-client</module>
-		<module>lds-model</module>
 	</modules>
 
 	<parent>
@@ -31,23 +28,8 @@
 	<dependencyManagement>
 		<dependencies>
 
-		<!--			dependencias do projeto-->
-			<dependency>
-				<groupId>br.com.mobguide</groupId>
-				<artifactId>lds-model</artifactId>
-				<version>3.0.0-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>br.com.mobguide</groupId>
-				<artifactId>lds-database</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
-			</dependency>
-
-			<!--			dependencias do projeto-->
-
-
-
+			<!--		dependencias do projeto-->
+			<!--		dependencias do projeto-->
 
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -56,19 +38,11 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.postgresql</groupId>
-				<artifactId>postgresql</artifactId>
-				<version>42.2.5</version>
-			</dependency>
-
-			<dependency>
 				<groupId>org.junit.jupiter</groupId>
 				<artifactId>junit-jupiter-api</artifactId>
 				<version>5.9.1</version>
 				<scope>test</scope>
 			</dependency>
-
-
 
 		</dependencies>
 	</dependencyManagement>

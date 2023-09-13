@@ -19,12 +19,7 @@
 
     <dependencies>
         <!--        dependencias internas-->
-        <dependency>
-            <groupId>br.com.mobguide</groupId>
-            <artifactId>lds-model</artifactId>
-        </dependency>
         <!--        dependencias internas-->
-
         <!--        dependencias de terceiros-->
 
         <dependency>
